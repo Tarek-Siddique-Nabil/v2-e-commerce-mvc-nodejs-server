@@ -4,39 +4,17 @@ const productSchema = new mongoose.Schema({
   title: {
     type: String,
     required: true,
+    index: true, // enable text search indexing for this field
+  },
+  description: {
+    type: String,
   },
   price: {
     type: Number,
     required: true,
   },
-  priceb2b: {
-    type: Number,
-    required: true,
-  },
-  image: {
-    type: String,
-    required: true,
-  },
-  spec: {
-    type: String,
-    required: true,
-  },
-  category: {
-    type: String,
-    required: true,
-  },
-  subCategory: {
-    type: String,
-    required: true,
-  },
-  shipping: {
-    type: String,
-    required: true,
-  },
-  description: {
-    type: String,
-    required: true,
-  },
 });
 
-module.exports = mongoose.model('Product', productSchema);
+const Product = mongoose.model('Product', productSchema);
+
+module.exports = Product;
